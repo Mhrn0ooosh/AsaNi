@@ -1,0 +1,67 @@
+﻿@model OperateHouseViewModel
+
+@{
+    ViewData["Title"] = ViewData["Title"];
+}
+
+<h1>@ViewBag.OperationName</h1>
+
+<h4>House</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="CreatedDateTime" />
+            <input type="hidden" asp-for="CreatedBy" />
+            <input type="hidden" asp-for="UpdatedDateTime" />
+            <input type="hidden" asp-for="UpdatedBy" />
+
+            <div class="form-group">
+                <label asp-for="Number" class="control-label"></label>
+                <input asp-for="Number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Area" class="control-label"></label>
+                <input asp-for="Area" class="form-control" />
+                <span asp-validation-for="Area" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Address" class="control-label"></label>
+                <input asp-for="Address" class="form-control" />
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsNorthern" /> @Html.DisplayNameFor(model => model.IsNorthern)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="OwnerId" class="control-label"></label>
+                @*<input asp-for="OwnerId" class="form-control" />*@
+                @*<select asp-for="OwnerId" class="form-control"
+            asp-items="@(new SelectList(ViewBag.Owners,"Id","FirstName"))">
+             <option value="">-- Select --</option>
+             </select>*@
+                @Html.DropDownListFor(model => model.OwnerId, (SelectList)ViewBag.Owners, "--Select--", new { @class = "form-control" })
+                <span asp-validation-for="OwnerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" asp-action="Operate" value="submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+

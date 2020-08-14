@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200813062022_sssssssss.cs" />
+    <Compile Remove="Migrations\20200813062022_sssssssss.Designer.cs" />
+    <Compile Remove="Migrations\20200813063713_seeddata.cs" />
+    <Compile Remove="Migrations\20200813063713_seeddata.Designer.cs" />
+    <Compile Remove="Migrations\20200813112156_allownull.cs" />
+    <Compile Remove="Migrations\20200813112156_allownull.Designer.cs" />
+    <Compile Remove="Migrations\20200813200245_creaedb.cs" />
+    <Compile Remove="Migrations\20200813200245_creaedb.Designer.cs" />
+    <Compile Remove="Migrations\20200814055325_mkn.cs" />
+    <Compile Remove="Migrations\20200814055325_mkn.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.7">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AsaNi.DomainClasses\AsaNi.DomainClasses.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<AsaNi.DomainClasses.House>
+
+@{
+    ViewData["Title"] = "HouseList";
+}
+
+<h2>HouseList</h2>
+
+<p>
+    <a asp-action="Operate" asp-route-id="0">Create New House</a> 
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                شماره
+            </th>
+            <th>
+                نام
+            </th>
+            <th>
+                متراژ
+            </th>
+            <th>
+                آدرس
+            </th>
+            <th>
+                شمالی
+            </th>
+            <th>
+                مالک
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Area)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IsNorthern)
+                </td>
+                <td>
+                    @Html.Label(string.Format("{0} {1}", item.Owner.FirstName, item.Owner.LastName))
+
+                </td>
+                <td>
+                    <a asp-action="Operate" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
