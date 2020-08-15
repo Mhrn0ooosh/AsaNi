@@ -10,13 +10,11 @@ namespace AsaNi.DataAccess.Context
     {
         public AsaNiDBContext(DbContextOptions options) : base(options)
         {
-            //this.Configuration.LazyLoadingEnabled = false;
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.EnableSensitiveDataLogging();
-            //optionsBuilder.UseLazyLoadingProxies();
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
